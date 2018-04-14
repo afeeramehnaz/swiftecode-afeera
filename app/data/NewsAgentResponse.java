@@ -4,5 +4,5 @@ public class NewsAgentResponse {
 
        public String query;
 
-    }
+
 }

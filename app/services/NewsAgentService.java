@@ -24,7 +24,7 @@ public class NewsAgentService {
                            .setQueryParameter("timezone","2018-13-04T16:57:23+0530")
                            .setHeader("Authorization","Bearer 054a388ef08e46c3beb61cd9a12dd13f")
                            .get();
-                           JsonNode response = responsePromise.thenApply(WSResponse::asJson.toCompletableFuture().get();
+                           JsonNode response = responsePromise.thenApply(WSResponse::asJson).toCompletableFuture().get();
                            newsAgentResponse.query = response.get("result").get("parameters").get("keyword").asText().isEmpty() ?
                                    (response.get("result").get("parameters").get("source").asText().isEmpty()
                                            ? response.get("result").get("parameters").get("category").asText()
