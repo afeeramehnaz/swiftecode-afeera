@@ -11,7 +11,7 @@ app.config(function ($mdThemingProvider) {
 app.controller('chatController', function ($scope, $sce) {
     $scope.messages = [];
     $scope.trust = $sce.trustAsHtml;
-    var exampleSocket = new WebSocket('ws://localhost:9000/chatSocket');
+    var exampleSocket = new WebSocket('wss://swiftcode-afeera.herokuapp.com/chatSocket');
     exampleSocket.onmessage = function (event) {
         var jsonData = JSON.parse(event.data);
         jsonData.time = new Date()
