@@ -1,26 +1,29 @@
-html,
-body {
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
-    overflow: hidden;
-}
+    html,
+    body {
+        height: 100%;
+        padding: 0px;
+        margin: 0px;
+        overflow: hidden;
+    }
 
-#message-pane {
-    background-color: #1677c1;
-}
+    #message-pane {
+        background-color: #e28b0f;
+        background-image: url("/assets/images/p.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-#form-card {
-    margin: 0px;
-}
+    #form-card {
+        margin: 0px;
+    }
 
-.material-icons {
-    font-size: 50px !important;
-}
+    .material-icons {
+        font-size: 50px !important;
+    }
 
-.message-card {
-    max-width: 75%;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 14px;
-}
+    .message-card {
+        max-width: 75%;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 14px;
+    }
