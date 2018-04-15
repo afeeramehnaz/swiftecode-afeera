@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 public class FeedService {
     public FeedResponse getFeedByQuery(String query) {
+        System.out.println(query);
         FeedResponse feedResponseObject = new FeedResponse();
         try {
             WSRequest feedRequest = WS.url("https://news.google.com/news");
@@ -24,8 +25,8 @@ public class FeedService {
             Document feedresponse = responsePromise.thenApply(WSResponse::asXml).toCompletableFuture().get();
         Node item=feedresponse.getFirstChild().getFirstChild().getChildNodes().item(10);
 feedResponseObject.title=item.getChildNodes().item(0).getFirstChild().getNodeValue();
-            feedResponseObject.pubDate=item.getChildNodes().item(1).getFirstChild().getNodeValue();
-            feedResponseObject.description=item.getChildNodes().item(2).getFirstChild().getNodeValue();
+            feedResponseObject.pubDate=item.getChildNodes().item(3).getFirstChild().getNodeValue();
+            feedResponseObject.description=item.getChildNodes().item(4).getFirstChild().getNodeValue();
         } catch (Exception e) {
             e.printStackTrace();
 

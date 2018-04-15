@@ -27,7 +27,6 @@ public class MessageActor extends UntypedActor {
 
     private NewsAgentService newsAgentService = new NewsAgentService();
     private FeedService feedService = new FeedService();
-    private NewsAgentResponse newsAgentResponse=new NewsAgentResponse();
     private FeedResponse feedResponse=new FeedResponse();
 
     @Override
@@ -39,8 +38,8 @@ public class MessageActor extends UntypedActor {
             messageObject.sender=Message.Sender.USER;
             out.tell(mapper.writeValueAsString(messageObject),self());
 
-            String query=newsAgentService.getNewsAgentResponse("Find"+message,UUID.randomUUID()).query;
-            feedResponse=feedService.getFeedByQuery(newsAgentResponse.query);
+            String query=newsAgentService.getNewsAgentResponse("Find " + message,UUID.randomUUID()).query;
+            feedResponse=feedService.getFeedByQuery(query);
             messageObject.text = (feedResponse.title == null) ? "No results found" : "Showing results for: " + query;
             messageObject.feedResponse= feedResponse;
             messageObject.sender=Message.Sender.BOT;
